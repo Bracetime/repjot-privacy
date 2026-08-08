@@ -8,7 +8,7 @@ Repository: <https://github.com/Bracetime/repjot-privacy>
 
 - Product name: `RepJot` in English and `练历` in Chinese.
 - Responsible person: `RepJot Support`.
-- Contact email: `BraceTimeApp@outlook.com`.
+- Contact email: `RepJotApp@outlook.com`.
 - Current release has no RepJot account, server-side workout database, CloudKit sync, advertising SDK, or third-party analytics SDK.
 - HealthKit access is limited to heart rate and active energy reads during workouts, plus writing the user-started strength workout to Apple Health.
 - Apple Watch communication uses WatchConnectivity between the user’s paired devices.
