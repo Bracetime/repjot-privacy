@@ -1,0 +1,423 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="description" content="Support for RepJot, a strength workout logger for iPhone and Apple Watch.">
+  <title>Support — RepJot</title>
+  <style>
+    :root {
+      --paper: #fbfaf7;
+      --surface: #ffffff;
+      --ink: #1d211c;
+      --muted: #5c6259;
+      --quiet: #858b81;
+      --line: #e5e8e1;
+      --accent: #2f6847;
+      --accent-dark: #214b33;
+      --accent-soft: #edf5ef;
+      --warm-soft: #f6f0e7;
+      --content: 980px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 88px;
+    }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font: 16px/1.7 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: var(--accent); }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      min-height: 72px;
+      padding: 16px 5vw;
+      background: rgba(255, 255, 255, .94);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(14px);
+    }
+
+    .wordmark {
+      color: var(--ink);
+      font-size: 21px;
+      font-weight: 750;
+      letter-spacing: -.04em;
+      text-decoration: none;
+    }
+
+    .divider { width: 1px; height: 20px; background: var(--line); }
+
+    .header-label {
+      color: var(--quiet);
+      font-size: 12px;
+      font-weight: 650;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .header-link {
+      margin-left: auto;
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .header-link:hover { text-decoration: underline; }
+
+    .page {
+      max-width: var(--content);
+      margin: 0 auto;
+      padding: 64px 28px 96px;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 310px;
+      gap: 56px;
+      align-items: end;
+      padding-bottom: 58px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .eyebrow {
+      margin: 0 0 18px;
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 750;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    h1, h2, h3 {
+      margin: 0;
+      letter-spacing: -.045em;
+      line-height: 1.15;
+    }
+
+    h1 {
+      max-width: 700px;
+      font-size: clamp(44px, 8vw, 78px);
+      font-weight: 760;
+    }
+
+    .lede {
+      max-width: 650px;
+      margin: 24px 0 0;
+      color: var(--muted);
+      font-size: 19px;
+      line-height: 1.65;
+    }
+
+    .action-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      align-items: center;
+      margin-top: 28px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 10px 18px;
+      border-radius: 999px;
+      background: var(--accent);
+      color: #ffffff;
+      font-size: 14px;
+      font-weight: 750;
+      text-decoration: none;
+    }
+
+    .button:hover { background: var(--accent-dark); }
+
+    .text-link {
+      font-size: 14px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .text-link:hover { text-decoration: underline; }
+
+    .contact-panel {
+      padding: 26px;
+      border: 1px solid #dce9df;
+      border-radius: 18px;
+      background: var(--accent-soft);
+    }
+
+    .contact-panel-label {
+      margin: 0 0 10px;
+      color: var(--accent);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .contact-panel h2 {
+      margin-bottom: 10px;
+      font-size: 28px;
+    }
+
+    .contact-panel p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .email {
+      display: inline-block;
+      margin-top: 18px;
+      font-weight: 750;
+      word-break: break-word;
+    }
+
+    section {
+      padding: 58px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    section:last-of-type { border-bottom: 0; }
+
+    .section-heading {
+      display: grid;
+      grid-template-columns: 220px minmax(0, 1fr);
+      gap: 42px;
+      align-items: start;
+      margin-bottom: 28px;
+    }
+
+    .section-kicker {
+      margin: 7px 0 0;
+      color: var(--quiet);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      font-size: clamp(30px, 5vw, 44px);
+      font-weight: 720;
+    }
+
+    h3 {
+      margin-bottom: 10px;
+      font-size: 19px;
+      font-weight: 720;
+    }
+
+    p { margin: 0 0 16px; color: var(--muted); }
+    p:last-child { margin-bottom: 0; }
+
+    ul { margin: 12px 0 0; padding-left: 22px; color: var(--muted); }
+    li { margin: 7px 0; }
+
+    strong { color: var(--ink); font-weight: 700; }
+
+    .quick-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .quick-card {
+      min-height: 154px;
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: var(--surface);
+    }
+
+    .quick-card h3 { font-size: 17px; }
+    .quick-card p { margin-top: 9px; font-size: 14px; }
+
+    .faq-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    details {
+      padding: 0 22px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: var(--surface);
+    }
+
+    summary {
+      padding: 20px 28px 20px 0;
+      cursor: pointer;
+      list-style: none;
+      font-weight: 720;
+    }
+
+    summary::-webkit-details-marker { display: none; }
+    summary::after {
+      float: right;
+      color: var(--accent);
+      content: "+";
+      font-size: 22px;
+      font-weight: 400;
+      line-height: 1;
+    }
+
+    details[open] summary::after { content: "−"; }
+
+    details p,
+    details ul {
+      max-width: 760px;
+      padding-bottom: 20px;
+      font-size: 15px;
+    }
+
+    .callout {
+      padding: 24px 26px;
+      border-left: 3px solid var(--accent);
+      background: var(--warm-soft);
+    }
+
+    .callout p { font-size: 15px; }
+
+    footer {
+      max-width: var(--content);
+      margin: 0 auto;
+      padding: 0 28px 56px;
+      color: var(--quiet);
+      font-size: 13px;
+    }
+
+    footer a { color: var(--muted); }
+
+    @media (max-width: 760px) {
+      .hero { grid-template-columns: 1fr; gap: 32px; }
+      .section-heading { display: block; }
+      .section-kicker { margin: 0 0 12px; }
+      .quick-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    @media (max-width: 560px) {
+      .site-header { padding-left: 20px; padding-right: 20px; }
+      .header-label { display: none; }
+      .page { padding: 44px 20px 72px; }
+      .quick-grid { grid-template-columns: 1fr; }
+      .contact-panel { padding: 22px; }
+      footer { padding-left: 20px; padding-right: 20px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <a class="wordmark" href="../">RepJot</a>
+    <span class="divider" aria-hidden="true"></span>
+    <span class="header-label">Support</span>
+    <a class="header-link" href="../">Privacy Policy</a>
+  </header>
+
+  <main class="page" id="top">
+    <section class="hero" aria-labelledby="page-title">
+      <div>
+        <p class="eyebrow">Support for iPhone and Apple Watch</p>
+        <h1 id="page-title">Get back to your workout.</h1>
+        <p class="lede">RepJot keeps strength training simple. Find quick answers below, or contact us if something is not working as expected.</p>
+        <div class="action-row">
+          <a class="button" href="mailto:RepJotApp@outlook.com?subject=RepJot%20Support%20Request">Contact Support</a>
+          <a class="text-link" href="../">Read Privacy Policy</a>
+        </div>
+      </div>
+
+      <aside class="contact-panel" aria-label="Support contact">
+        <p class="contact-panel-label">Support contact</p>
+        <h2>RepJot Support</h2>
+        <p>For setup questions, troubleshooting, or feedback, email us and include the details that will help us reproduce the issue.</p>
+        <a class="email" href="mailto:RepJotApp@outlook.com">RepJotApp@outlook.com</a>
+      </aside>
+    </section>
+
+    <section aria-labelledby="quick-help-title">
+      <div class="section-heading">
+        <p class="section-kicker">Start here</p>
+        <h2 id="quick-help-title">Quick help</h2>
+      </div>
+      <div class="quick-grid">
+        <article class="quick-card">
+          <h3>Start a workout</h3>
+          <p>Create a template on iPhone, choose a session, and start logging sets. RepJot can also coordinate the session with a paired Apple Watch.</p>
+        </article>
+        <article class="quick-card">
+          <h3>Apple Watch connection</h3>
+          <p>Keep the iPhone and Apple Watch nearby, confirm they are paired, and open RepJot on both devices before starting a session.</p>
+        </article>
+        <article class="quick-card">
+          <h3>Health features</h3>
+          <p>HealthKit permission is requested when a workout needs health features. Local workout logging remains available if you decline permission.</p>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="faq-title">
+      <div class="section-heading">
+        <p class="section-kicker">Common questions</p>
+        <h2 id="faq-title">Troubleshooting</h2>
+      </div>
+      <div class="faq-list">
+        <details>
+          <summary>My iPhone and Apple Watch are not syncing.</summary>
+          <p>Make sure both devices are nearby, unlocked when possible, and running the current version of RepJot. Confirm that Bluetooth is enabled and that the devices are still paired in the Apple Watch app. If a connection briefly drops during a workout, continue the session and allow the devices time to synchronize when the connection returns.</p>
+        </details>
+
+        <details>
+          <summary>How do I change HealthKit permissions?</summary>
+          <p>Review RepJot’s access in the Health app or in <strong>Settings &gt; Privacy &amp; Security &gt; Health</strong>. You can change access for heart rate, active energy, and workouts at any time. If permission is unavailable, RepJot can still be used for local workout logging.</p>
+        </details>
+
+        <details>
+          <summary>How do I restore RepJot Pro?</summary>
+          <p>Open RepJot on iPhone, go to <strong>Settings &gt; RepJot Pro</strong>, and choose <strong>Restore Purchases</strong>. Make sure you are signed in with the Apple Account used for the original purchase. Apple may require an internet connection to verify the transaction.</p>
+        </details>
+
+        <details>
+          <summary>How do I delete my RepJot data?</summary>
+          <p>Open RepJot’s Settings and use the data controls at the bottom of the screen to delete local templates and workout records. RepJot data and Apple Health workouts are managed separately; if you also want to remove a workout from Apple Health, delete it in Apple’s Health app.</p>
+        </details>
+
+        <details>
+          <summary>What should I do if HealthKit does not save a workout?</summary>
+          <p>Check that RepJot has permission to write workouts in Apple Health, then try again with both devices sufficiently charged and nearby. Your RepJot workout record is kept separately from the Apple Health entry, so a HealthKit write problem should not remove the local training record.</p>
+        </details>
+      </div>
+    </section>
+
+    <section aria-labelledby="privacy-title">
+      <div class="section-heading">
+        <p class="section-kicker">More information</p>
+        <h2 id="privacy-title">Privacy and data</h2>
+      </div>
+      <div class="callout">
+        <p>RepJot is designed to work without an account. Workout templates, history, settings, and notes are stored on your devices, and RepJot does not upload HealthKit data to a RepJot server. Read the full <a href="../">RepJot Privacy Policy</a> for details about local storage, HealthKit, Apple Watch communication, diagnostics, and deletion.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © 2026 RepJot · <a href="../">Privacy Policy</a> · <a href="mailto:RepJotApp@outlook.com">RepJotApp@outlook.com</a>
+  </footer>
+</body>
+</html>

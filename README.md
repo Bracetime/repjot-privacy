@@ -3,6 +3,7 @@
 Public privacy policy page for the RepJot app.
 
 - Published page: <https://bracetime.github.io/repjot-privacy/>
+- Support page: <https://bracetime.github.io/repjot-privacy/support/>
 - Repository: <https://github.com/Bracetime/repjot-privacy>
 - GitHub Pages source: `main` branch, repository root
 
