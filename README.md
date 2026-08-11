@@ -10,7 +10,7 @@ Public privacy policy page for the RepJot app.
 ## Current implementation notes
 
 - Product name: `RepJot`.
-- Privacy contact: `RepJot Support`.
+- Operator and privacy contact: `Zhuoxue Chen`, independent developer.
 - Contact email: `RepJotApp@outlook.com`.
 - Current release has no RepJot account, server-side workout database, CloudKit sync, advertising SDK, or third-party analytics SDK.
 - HealthKit access is limited to heart rate and active energy reads during workouts, plus writing the user-started strength workout to Apple Health.
